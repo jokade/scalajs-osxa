@@ -6,6 +6,7 @@ lazy val commonSettings = Seq(
   scalacOptions ++= Seq("-deprecation","-unchecked","-feature","-Xlint"),
   libraryDependencies ++= Seq(
   ),
+  resolvers += Resolver.sonatypeRepo("snapshots"),
   scalacOptions ++= (if (isSnapshot.value) Seq.empty else Seq({
         val a = baseDirectory.value.toURI.toString.replaceFirst("[^/]+/?$", "")
         val g = "https://raw.githubusercontent.com/jokade/scalajs-osxa"
@@ -22,7 +23,9 @@ lazy val osxa = project.in(file(".")).
   //settings(sonatypeSettings: _*).
   settings( 
     name := "scalajs-osxa",
+    addCompilerPlugin("org.scalamacros" % "paradise" % "2.0.1" cross CrossVersion.full),
     libraryDependencies ++= Seq(
+      "de.surfice" %%% "smacrotools-sjs" % "0.1-SNAPSHOT" % "provided"
     ),
     resolvers += Resolver.sonatypeRepo("releases")
   )

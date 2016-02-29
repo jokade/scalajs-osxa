@@ -6,5 +6,8 @@
 import scala.scalajs.js
 
 package object osxa {
-  def onInit(f: =>Any) = js.Dynamic.global.run = (() => f):js.Function
+//  def onInit(f: =>Any) = js.Dynamic.global.run = (() => f):js.Function
+
+//  @inline def log(s: String): Unit = js.Dynamic.global.console.log(s)
+//  @inline def log(o: js.Any): Unit = js.Dynamic.global.console.log(o)
 }

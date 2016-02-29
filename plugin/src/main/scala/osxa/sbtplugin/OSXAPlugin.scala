@@ -57,7 +57,7 @@ object OSXAPlugin extends AutoPlugin {
     !lastrunFile.exists() || file.lastModified() > lastrunFile.lastModified()
 
   private val runScript =
-    """if(typeof Init == 'function') {Init();}"""
+    """if(typeof Init == 'function') {Init();""}"""
 //    """if(typeof run == 'function') {run();} else {throw 'Cannot execute OSXA script: run() is not defined'};"""
 
   private object DepBuilder extends DependencyBuilders
